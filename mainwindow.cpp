@@ -18,11 +18,13 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
     checkbox_column = 0;
     checkbox_row = 0;
 
+
     tcp_actions_log = new QPlainTextEdit;
     tcp_actions_log->setMaximumBlockCount(max_messages);
     tcp_actions_log->setMaximumHeight(tcp_status_max_height);
     tcp_actions_log->setMinimumWidth(min_length);
     tcp_actions_log->setReadOnly(true);
+    tcp = new TcpActions(tcp_actions_log);
 
     QVBoxLayout* main_vbox = new QVBoxLayout();
     QScrollArea* log_scroll = new QScrollArea;
@@ -130,6 +132,7 @@ void MainWindow::constructNewConnection(int asset_id, QString& name, QString& qu
     asset_thread.insert(new_asset_thread, service->asset_id);
     connection->moveToThread(new_asset_thread);
 
+    QObject::connect(connection, &WssConnection::newParsedMessage, tcp, &TcpActions::slotNewMessage);
     QObject::connect(connection, &WssConnection::newMessage, this, &MainWindow::slotNewMessage);
     QObject::connect(new_asset_thread, &QThread::started, connection, &WssConnection::slotThreadStart);
     new_asset_thread->start();
@@ -198,4 +201,5 @@ MainWindow::~MainWindow()
             delete values.value(i)->asset_controlpanel;
     }
 
+    delete tcp;
 }

@@ -8,6 +8,7 @@
 #include <QThread>
 #include <QPlainTextEdit>
 #include "wssconnection.h"
+#include "tcpactions.h"
 
 class QGridLayout;
 class QVBoxLayout;
@@ -52,13 +53,13 @@ private:
     void addNewCheckbox(assetQuoteService* asset);
     void loadStoredConnections();
 
+    TcpActions* tcp;
     QGridLayout* checkbox_layout;
     QMap<QThread*, int> asset_thread;
     QMap<QCheckBox*, int> asset_checkbox;
     QMap<int, assetQuoteService*> assets;
     QPlainTextEdit* tcp_actions_log;
     QVBoxLayout* status_fields_vbox;
-    WssConnection connection;
 };
 
 #endif // MAINWINDOW_H

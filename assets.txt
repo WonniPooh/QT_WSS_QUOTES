@@ -1,0 +1,65 @@
+1;  EUR/USD;  {"pair":"EURUSD","size":1}; 1
+2;  GBP/USD;  {"pair":"GBPUSD","size":1}; 1
+3;  USD/JPY;  {"pair":"USDJPY","size":1}; 1
+4;  USD/CHF;  {"pair":"USDCHF","size":1}; 1
+5;  AUD/USD;  {"pair":"AUDUSD","size":1}; 1
+6;  EUR/GBP;  {"pair":"EURGBP","size":1}; 1
+7;  USD/CAD;  {"pair":"USDCAD","size":1}; 1
+8;  NZD/USD;  {"pair":"NZDUSD","size":1}; 1
+9;  EUR/JPY;  {"pair":"EURJPY","size":1}; 1
+10;  EUR/CHF;  {"pair":"EURCHF","size":1}; 1
+11;  GBP/JPY;  {"pair":"GBPJPY","size":1}; 1
+12;  GBP/CHF;  {"pair":"GBPCHF","size":1}; 1
+13;  CHF/JPY;  {"pair":"CHFJPY","size":1}; 1
+14;  CAD/CHF;  {"pair":"CADCHF","size":1}; 1
+15;  EUR/AUD;  {"pair":"EURAUD","size":1}; 1
+16;  EUR/CAD;  {"pair":"EURCAD","size":1}; 1
+39;  USD/MXN;  {"pair":"USDMXN","size":1}; 1
+42;  USD/SGD;  {"pair":"USDSGD","size":1}; 1
+47;  AUD/CAD;  {"pair":"AUDCAD","size":1}; 1
+48;  AUD/CHF;  {"pair":"AUDCHF","size":1}; 1
+49;  AUD/JPY;  {"pair":"AUDJPY","size":1}; 1
+50;  AUD/NZD;  {"pair":"AUDNZD","size":1}; 1
+51;  CAD/JPY;  {"pair":"CADJPY","size":1}; 1
+52;  EUR/NZD;  {"pair":"EURNZD","size":1}; 1
+53;  GBP/AUD;  {"pair":"GBPUSD","size":1}; 1
+54;  GBP/CAD;  {"pair":"GBPCAD","size":1}; 1
+55;  GBP/NZD;  {"pair":"GBPNZD","size":1}; 1
+56;  NZD/CAD;  {"pair":"NZDCAD","size":1}; 1
+57;  NZD/CHF;  {"pair":"NZDCHF","size":1}; 1
+58;  NZD/JPY;  {"pair":"NZDJPY","size":1}; 1
+59;  USD/NOK;  {"pair":"USDNOK","size":1}; 1
+166;  S&P 500;  {"pair":"ES","size":1}; 1
+167;  CAC 40;  {"pair":"FCE","size":1}; 1
+175;  EURO STOXX 50;  {"pair":"FESX","size":1}; 1
+178;  Nikkei 225;  {"pair":"NKD","size":1}; 1
+179;  Hang Seng Index;  {"pair":"HSI","size":1}; 1
+1691;  EUR/RUB;  {"pair":"EURRUB","size":1}; 1
+2186;  USD/RUB;  {"pair":"USDRUB","size":1}; 1
+8826;  DAX;  {"pair":"FDAX","size":1}; 1
+8830;  Gold;  {"pair":"XAUUSD","size":1}; 1
+8831;  Copper;  {"pair":"HG","size":1}; 1
+8833;  BRENT;  {"pair":"_BRN","size":1}; 1
+8836;  Silver;  {"pair":"XAGUSD","size":1}; 1
+8838;  FTSE 100;  {"pair":"Z","size":1}; 1
+8873;  Dow Jones;  {"pair":"YM","size":1}; 1
+8874;  NASDAQ;  {"pair":"NQ","size":1}; 1
+8910;  Platinum;  {"pair":"PL","size":1}; 1
+10001;  USD/CLP;  {"pair":"USDCLP","size":1}; 0
+10002;  Bitcoin;  {"pair":"Bitcoin","size":1}; 0
+10003;  Apple;  {"pair":"AAPL","size":1}; 0
+10004;  Boeing;  {"pair":"BA","size":1}; 0
+10005;  Facebook;  {"pair":"FB","size":1}; 0
+10006;  Google;  {"pair":"GOOGL","size":1}; 0
+10007;  IBM;  {"pair":"IBM","size":1}; 0
+10008;  Tesla;  {"pair":"TSLA","size":1}; 0
+10009;  Coca-Cola;  {"pair":"KO","size":1}; 0
+10010;  McDonalds;  {"pair":"MCD","size":1}; 0
+10011;  Microsoft;  {"pair":"MSFT","size":1}; 0
+10012;  Visa;  {"pair":"V","size":1}; 0
+10013;  Starbucks;  {"pair":"SBUX","size":1}; 0
+10014;  BMW;  {"pair":"BMW","size":1}; 0
+10015;  NINTENDO;  {"pair":"NINTENDO_JP","size":1}; 0
+10016;  NG;  {"pair":"NG","size":1}; 0
+10017;  RUSSELL 2000;  {"pair":"TF","size":1}; 0
+10018;  CryptoIndex;  {"pair":"CryptoIndex","size":1}; 0
