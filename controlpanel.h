@@ -5,6 +5,7 @@
 #include <QPushButton>
 #include <QPlainTextEdit>
 #include <QVBoxLayout>
+#include <QLabel>
 
 class ControlPanel : public QWidget
 {
@@ -15,6 +16,8 @@ public:
     QPlainTextEdit* getTextEdit();
     void addLogMsg(QString &message);
     QVBoxLayout* getAssetLayout();
+    void showLabel();
+    void hideLabel();
 signals:
 
 
@@ -23,6 +26,7 @@ public slots:
 
 private:
     bool show_button_state;
+    QLabel* panel_title;
     QVBoxLayout* m_control_panel;
     QPlainTextEdit* income_log;
 };

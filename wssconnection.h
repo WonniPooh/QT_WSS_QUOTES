@@ -3,9 +3,7 @@
 
 #include <QObject>
 #include <QWebSocket>
-
 #include "jsonhandler.h"
-#include "controlpanel.h"
 #include "statisticsfilesystem.h"
 
 class WssConnection : public QObject
@@ -14,11 +12,11 @@ class WssConnection : public QObject
 public:
     explicit WssConnection(QObject *parent = 0);
     ~WssConnection();
-    QVBoxLayout *getPanelLayout();
     void setConnectionConfiguration(int id, QString name, QString query); //+ Tcp client
 
 signals:
     void newMessage(int asset_id, QString message);
+    void newParsedMessage(int asset_id, long time, double value);
 
 public slots:
     void onConnected();
@@ -36,7 +34,6 @@ private:
     QFile                   *file_save_to;
     QWebSocket              *m_webSocket;
     jsonHandler             *json_parser;
-    ControlPanel            *m_panel;
     StatisticsFileSystem    *m_filesys;
 };
 

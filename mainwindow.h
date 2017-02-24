@@ -29,6 +29,7 @@ struct assetQuoteService
     QThread* asset_thread;
     QCheckBox* asset_checkbox;
     WssConnection* asset_connection;
+    ControlPanel* asset_controlpanel;
 };
 
 class MainWindow : public QWidget
@@ -40,13 +41,13 @@ public:
 
 public slots:
     void slotCheckboxClicked();
-
+    void slotNewMessage(int asset_id, QString msg);
 private:
     int checkbox_row = 0;
     int checkbox_column = 0;
 
-    void constructNewThread(int asset_id, QString& name, QString& query);
-    void shutExistingThread(assetQuoteService *sender_service);
+    void constructNewConnection(int asset_id, QString& name, QString& query);
+    void shutExistingConnection(assetQuoteService *sender_service);
 
     void addNewCheckbox(assetQuoteService* asset);
     void loadStoredConnections();

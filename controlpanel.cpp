@@ -12,7 +12,7 @@ ControlPanel::ControlPanel(QString *asset_name, QWidget *parent) : QWidget(paren
     QPushButton* show_log_btn = new QPushButton("Show Log");
     m_control_panel = new QVBoxLayout;
     income_log = new QPlainTextEdit;
-    QLabel* panel_title = new QLabel;
+    panel_title = new QLabel;
 
     income_log->setMaximumBlockCount(max_messages);
     show_button_state = false;
@@ -59,6 +59,16 @@ void ControlPanel::showButtonPressed()
 QVBoxLayout* ControlPanel::getAssetLayout()
 {
     return m_control_panel;
+}
+
+void ControlPanel::showLabel()
+{
+    panel_title->setVisible(true);
+}
+
+void ControlPanel::hideLabel()
+{
+    panel_title->hide();
 }
 
 void ControlPanel::addLogMsg(QString &message)

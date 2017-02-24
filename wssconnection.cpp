@@ -4,19 +4,12 @@
 WssConnection::WssConnection(QObject *parent) : QObject(parent)
 {
     file_save_to = nullptr;
-    m_panel = nullptr;
     m_filesys = nullptr;
     connection_url.setUrl("wss://olymptrade.com/ws2");
 }
 
 WssConnection::~WssConnection()
 {
-    file_save_to->close();
-    delete file_save_to;
-    m_webSocket->close();
-    m_webSocket->deleteLater();
-    m_panel->deleteLater();
-    json_parser->deleteLater();
     delete m_filesys;
 }
 
@@ -25,15 +18,14 @@ void WssConnection::setConnectionConfiguration(int id, QString name, QString que
     asset_id = id;
     asset_name = name;
     asset_query = query;
-    m_panel = new ControlPanel(&asset_name);
 }
 
 void WssConnection::slotThreadStart()
 {
-    m_webSocket = new QWebSocket;
+    m_webSocket = new QWebSocket(QString(), QWebSocketProtocol::VersionLatest, this);
     m_filesys  = new StatisticsFileSystem(asset_id);
-    json_parser = new jsonHandler;
-    file_save_to = new QFile;
+    json_parser = new jsonHandler(this);
+    file_save_to = new QFile(this);
 
     connect(m_webSocket, &QWebSocket::connected, this, &WssConnection::onConnected);
     typedef void (QWebSocket:: *sslErrorsSignal)(const QList<QSslError> &);
@@ -60,22 +52,23 @@ void WssConnection::onTextMessageReceived(QString message)
             }
         }
 
-        file_save_to = new QFile(*(m_filesys->get_current_filepath()));
+        file_save_to = new QFile(*(m_filesys->get_current_filepath()), this);
         file_save_to->open(QIODevice::Append | QIODevice::Unbuffered);
     }
 
     if(message.length() > max_msg_length)
         return;
 
-    json_parser->handle_json(message);
+    emit newMessage(asset_id, message);
 
-    m_panel->addLogMsg(message);
+    json_parser->handle_json(message);
 
     if(json_parser->get_time())
     {
         QByteArray array_to_write;
         array_to_write += QString::number((long)json_parser->get_time()) + QString(" ") + QString::number(json_parser->get_value()) + QString("\n");
         file_save_to->write(array_to_write);
+        emit newParsedMessage(asset_id, json_parser->get_time(), json_parser->get_value());
     }
 }
 
@@ -88,9 +81,4 @@ void WssConnection::onSslErrors(const QList<QSslError> &errors)
     // to the CA store.
 
     m_webSocket->ignoreSslErrors();
-}
-
-QVBoxLayout* WssConnection::getPanelLayout()
-{
-    return m_panel->getAssetLayout();
 }
